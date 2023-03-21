@@ -87,6 +87,89 @@
         </p>
         <!-- ... -->
         <p>
+            2. How often do you have difficulty getting things in order when you have to do a task that requires organization?<br>
+            <select name="q2">
+                <option value="0">Never</option>
+                <option value="1">Rarely</option>
+                <option value="2">Sometimes</option>
+                <option value="3">Very Often</option>
+            </select>
+        </p>
+        <!-- ... -->
+         <p>
+            3. How often do you have problems remembering appointments or obligations?<br>
+            <select name="q3">
+                <option value="0">Never</option>
+                <option value="1">Rarely</option>
+                <option value="2">Sometimes</option>
+                <option value="3">Very Often</option>
+            </select>
+        </p>
+        <p>
+    4. When you have a task that requires a lot of thought, how often do you avoid or delay getting started?<br>
+    <select name="q4">
+        <option value="0">Never</option>
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Very Often</option>
+    </select>
+</p>
+<p>
+    5. How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?<br>
+    <select name="q5">
+        <option value="0">Never</option>
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Very Often</option>
+    </select>
+</p>
+<p>
+    6. How often do you feel overly active and compelled to do things, like you were driven by a motor?<br>
+    <select name="q6">
+        <option value="0">Never</option>
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Very Often</option>
+    </select>
+</p>
+<p>
+    7. How often do you make careless mistakes when you have to work on a boring or difficult project?<br>
+    <select name="q7">
+        <option value="0">Never</option>
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Very Often</option>
+    </select>
+</p>
+<p>
+    8. How often do you have difficulty keeping your attention when you are doing boring or repetitive work?<br>
+    <select name="q8">
+        <option value="0">Never</option>
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Very Often</option>
+    </select>
+</p>
+<p>
+    9. How often do you have difficulty concentrating on what people say to you, even when they are speaking to you directly?<br>
+    <select name="q9">
+        <option value="0">Never</option>
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Very Often</option>
+    </select>
+</p>
+<p>
+    10. How often do you misplace or have difficulty finding things at home or at work?<br>
+    <select name="q10">
+        <option value="0">Never</option>
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Very Often</option>
+    </select>
+</p>
+        <!-- ... -->
+        <p>
             40. How often do you find it difficult to stay focused during conversations, often losing track of what has been said?<br>
             <select name="q40">
                 <option value="0">Never</option>
@@ -102,21 +185,24 @@
         document.getElementById("submit-btn").addEventListener("click", function () {
             var form = document.getElementById("adhd-questionnaire");
             var totalScore = 0;
-            for
-(var i = 0; i < form.elements.length; i++) {
+            for (var i
+= 0; i < form.elements.length; i++) {
 totalScore += parseInt(form.elements[i].value);
 }
                     var resultText;
-        if (totalScore <= 50) {
-            resultText = "Your score is low. ADHD is unlikely, but if you have concerns, consult a medical professional.";
-        } else if (totalScore > 50 && totalScore <= 100) {
-            resultText = "Your score is moderate. You may have some symptoms of ADHD. Consider discussing your concerns with a medical professional.";
+        if (totalScore <= 40) {
+            resultText = "Unlikely to have ADHD";
+        } else if (totalScore > 40 && totalScore <= 80) {
+            resultText = "Mild ADHD symptoms, consider further evaluation";
+        } else if (totalScore > 80 && totalScore <= 120) {
+            resultText = "Moderate ADHD symptoms, consider seeking professional help";
         } else {
-            resultText = "Your score is high. You may have ADHD. It's strongly recommended that you consult a medical professional for further evaluation.";
+            resultText = "High likelihood of ADHD, strongly consider professional evaluation";
         }
 
-        document.getElementById("results").innerHTML = "Your score: " + totalScore + "<br>" + resultText;
+        document.getElementById("results").innerHTML = "Your score: " + totalScore + "<br>" + resultText + "<br><br>Remember, this assessment is not a diagnostic tool, and only a qualified mental health professional can diagnose ADHD. If your score indicates that you may have ADHD, it is important to seek a professional evaluation for a proper diagnosis and treatment recommendations.";
     });
 </script>
 </body>
 </html>
+```
