@@ -4,31 +4,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADHD Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 36px;
+            color: #333;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        form p {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        #submit-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        #submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        #results {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>ADHD Questionnaire</h1>
     <form id="adhd-questionnaire">
+        <!-- Add your questionnaire questions here using the provided HTML structure -->
         <p>
-            1. How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?<br>
-            <input type="radio" name="q1" value="0"> Never<br>
-            <input type="radio" name="q1" value="1"> Rarely<br>
-            <input type="radio" name="q1" value="2"> Sometimes<br>
-            <input type="radio" name="q1" value="3"> Very Often
+            1. Question 1<br>
+            <select name="q1">
+                <option value="0">Never</option>
+                <option value="1">Rarely</option>
+                <option value="2">Sometimes</option>
+                <option value="3">Very Often</option>
+            </select>
         </p>
+        <!-- ... -->
         <p>
-            2. How often do you have difficulty getting things in order when you have to do a task that requires organization?<br>
-            <input type="radio" name="q2" value="0"> Never<br>
-            <input type="radio" name="q2" value="1"> Rarely<br>
-            <input type="radio" name="q2" value="2"> Sometimes<br>
-            <input type="radio" name="q2" value="3"> Very Often
-        </p>
-        <p>
-            3. How often do you have problems remembering appointments or obligations?<br>
-            <input type="radio" name="q3" value="0"> Never<br>
-            <input type="radio" name="q3" value="1"> Rarely<br>
-            <input type="radio" name="q3" value="2"> Sometimes<br>
-            <input type="radio" name="q3" value="3"> Very Often
+            40. Question 40<br>
+            <select name="q40">
+                <option value="0">Never</option>
+                <option value="1">Rarely</option>
+                <option value="2">Sometimes</option>
+                <option value="3">Very Often</option>
+            </select>
         </p>
     </form>
-</body>
-</html>
+    <button id="submit-btn">Submit</button>
+    <div id="results"></div>
+    <script>
+        document.getElementById("submit-btn").addEventListener("click", function () {
+            var form = document.getElementById("adhd-questionnaire");
+            var totalScore = 0;
+            for (var i = 0; i < form.elements.length; i++) {
+               
+            totalScore += parseInt(form.elements[i].value);
+        }
+
+        var resultText;
+        if (totalScore <= 50) {
+            resultText = "Your score is low. ADHD is unlikely, but if you have concerns, consult a medical professional.";
+        } else if (totalScore > 50 && totalScore <= 100) {
+            resultText = "Your score is moderate. You may have some symptoms of ADHD. Consider discussing your concerns with a medical professional.";
+        } else {
+            resultText = "Your score is high. You may have ADHD. It's strongly recommended that you consult a medical professional for further evaluation.";
+        }
+
+        document.getElementById("results").innerHTML = "Your score: " + totalScore + "<br>" + resultText;
+    });
+</script>
