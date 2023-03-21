@@ -76,9 +76,8 @@
 <body>
     <h1>ADHD Questionnaire</h1>
     <form id="adhd-questionnaire">
-        <!-- Add your questionnaire questions here using the provided HTML structure -->
         <p>
-            1. Question 1<br>
+            1. How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?<br>
             <select name="q1">
                 <option value="0">Never</option>
                 <option value="1">Rarely</option>
@@ -88,7 +87,7 @@
         </p>
         <!-- ... -->
         <p>
-            40. Question 40<br>
+            40. How often do you find it difficult to stay focused during conversations, often losing track of what has been said?<br>
             <select name="q40">
                 <option value="0">Never</option>
                 <option value="1">Rarely</option>
@@ -103,12 +102,11 @@
         document.getElementById("submit-btn").addEventListener("click", function () {
             var form = document.getElementById("adhd-questionnaire");
             var totalScore = 0;
-            for (var i = 0; i < form.elements.length; i++) {
-               
-            totalScore += parseInt(form.elements[i].value);
-        }
-
-        var resultText;
+            for
+(var i = 0; i < form.elements.length; i++) {
+totalScore += parseInt(form.elements[i].value);
+}
+                    var resultText;
         if (totalScore <= 50) {
             resultText = "Your score is low. ADHD is unlikely, but if you have concerns, consult a medical professional.";
         } else if (totalScore > 50 && totalScore <= 100) {
@@ -120,3 +118,5 @@
         document.getElementById("results").innerHTML = "Your score: " + totalScore + "<br>" + resultText;
     });
 </script>
+</body>
+</html>
